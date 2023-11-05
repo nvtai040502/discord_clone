@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form"
 import { Button } from "@/components/ui/button"
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { FileUpload } from "@/components/file-upload"
+import { useState, useEffect } from "react"
 import {
   Dialog,
   DialogContent,
@@ -22,7 +24,8 @@ import {
   FormLabel
 } from "@/components/ui/form"
 
-const formSkema = z.object({
+
+const formSchema = z.object({
   name: z.string().min(2, {
     message: "Server name must be at least 2 characters."
   }),
@@ -35,18 +38,34 @@ const formSkema = z.object({
 
 export function AddAServerModal() {
   
-  const form = useForm<z.infer<typeof formSkema>>({
-    resolver: zodResolver(formSkema),
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       imageUrl: ""
     }
   })
 
-  return (
-    <Dialog open>
+  const isLoading = form.formState.isSubmitting
+  
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    console.log(values);
+  }
 
-      <DialogTrigger asChild>
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
+  return (
+    <Dialog>
+
+      <DialogTrigger>
         <AddAServerButton></AddAServerButton>
       </DialogTrigger>
 
@@ -62,7 +81,7 @@ export function AddAServerModal() {
         </DialogHeader>
       
         <Form {...form}>
-          <form className="space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             
             <div className="space-y-8 px-4">
               <div className="flex items-center justify-center text-center">
@@ -71,8 +90,13 @@ export function AddAServerModal() {
                   name="imageUrl"
                   render={({ field }) => (
                     <FormItem>
-                      To Do Image Upload
                       <FormControl>
+                        <FileUpload
+                          endpoint="serverImage"
+                          value={field.value}
+                          onChange={field.onChange} 
+                        />
+
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -92,6 +116,7 @@ export function AddAServerModal() {
                     </FormLabel>
                     <FormControl>
                       <Input 
+                        disabled={isLoading}
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
                         placeholder="Enter server name" {...field} 
                       />
@@ -103,7 +128,13 @@ export function AddAServerModal() {
             </div> 
 
             <div className="flex bg-zinc-300/50 px-4 py-6">
-              <Button  variant="secondary" className="p-5 ml-auto">Create</Button>
+              <Button  
+                disabled={isLoading} 
+                variant="secondary" 
+                className="p-5 ml-auto"
+              >
+                Create
+              </Button>
             </div>
           </form>
         </Form>
