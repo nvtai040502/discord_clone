@@ -1,11 +1,12 @@
+import { ModeToggle } from '@/components/mode-toggle'
 import { UserButton } from '@clerk/nextjs'
 
 export default function Home() {
   return (
     <div>
-      Sign In/ Sign Up
+      Dark Theme
       <UserButton></UserButton>
-
+      <ModeToggle></ModeToggle>
     </div>
   )
 }
