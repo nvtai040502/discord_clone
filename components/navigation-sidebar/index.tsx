@@ -18,7 +18,6 @@ export const NavigationSidebar = async () => {
     return redirect("/")
   }
 
-
   const servers = await db.server.findMany({
     where: {
       members: {
