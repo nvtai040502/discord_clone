@@ -9,7 +9,7 @@ export default async function Home() {
 
   return (
     <div>
-      Database Setup with Prisma and Plannel Scale
+      Server Creation API
       <AddAServerModal></AddAServerModal>
  
       Name: {profile.name}      
