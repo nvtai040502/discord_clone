@@ -1,4 +1,3 @@
-import { AddAServerModal } from '@/components/modals/add-a-server'
 import { ModeToggle } from '@/components/mode-toggle'
 import InitalProfile from '@/lib/inital-profile'
 import { UserButton } from '@clerk/nextjs'
@@ -9,12 +8,11 @@ export default async function Home() {
 
   return (
     <div>
-      Server Creation API
-      <AddAServerModal></AddAServerModal>
- 
-      Name: {profile.name}      
-      <UserButton></UserButton>
+      Navigation Sidebar Back End
+
+      Name: {profile.name}
       <ModeToggle></ModeToggle>
+      <UserButton></UserButton>
     </div>
   )
 }

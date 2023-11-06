@@ -4,6 +4,7 @@ import './globals.css'
 import { ClerkProvider } from '@clerk/nextjs'
 import { ThemeProvider } from '@/components/theme-provider'
 import { cn } from '@/lib/utils'
+import { NavigationSidebar } from '@/components/navigation-sidebar'
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -36,7 +37,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            
+            { children}
+           
           </ThemeProvider>
         
         </body>
