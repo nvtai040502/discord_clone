@@ -1,9 +1,8 @@
-
 export default async function ServerPage() {
 
 
   return (
-    <div>
+    <div className=" flex pl-[250px]">
         Hello World
     </div>
   )
