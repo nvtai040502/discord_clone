@@ -6,6 +6,8 @@ import { InvitePeopleModal } from "@/components/modals/invite-people";
 import { ServerSettingModal } from "@/components/modals/server-setting";
 import { ManageMembersModal } from "@/components/modals/manage-members";
 import { CreateChannelModal } from "@/components/modals/create-channel";
+import { DeleteServerModal } from "@/components/modals/delete-server";
+import { LeaveServerModal } from "@/components/modals/leave-server";
 
 
 export function ModalProvider() {
@@ -26,6 +28,8 @@ export function ModalProvider() {
       <ServerSettingModal />
       <ManageMembersModal />
       <CreateChannelModal />
+      <DeleteServerModal />
+      <LeaveServerModal />
     </>
   )
 }
