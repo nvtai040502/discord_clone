@@ -5,6 +5,7 @@ import { AddAServerModal } from"@/components/modals/add-a-server/index";
 import { InvitePeopleModal } from "@/components/modals/invite-people";
 import { ServerSettingModal } from "@/components/modals/server-setting";
 import { ManageMembersModal } from "@/components/modals/manage-members";
+import { CreateChannelModal } from "@/components/modals/create-channel";
 
 
 export function ModalProvider() {
@@ -24,6 +25,7 @@ export function ModalProvider() {
       <InvitePeopleModal />
       <ServerSettingModal />
       <ManageMembersModal />
+      <CreateChannelModal />
     </>
   )
 }

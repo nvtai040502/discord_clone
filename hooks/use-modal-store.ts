@@ -5,7 +5,8 @@ export type ModalType =
 "addAServer" | 
 "invitePeople" |
 "serverSetting" |
-"manageMembers"
+"manageMembers" |
+"createChannel"
 
 interface ModalData {
   server?: Server

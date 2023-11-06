@@ -96,7 +96,7 @@ export const ManageMembersModal = () => {
   return (
     <Dialog open={isModalOpen} onOpenChange={onClose}>
       <DialogContent className="bg-white text-black overflow-hidden">
-        <DialogHeader className="pt-2 px-6">
+        <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">
             Manage Members
           </DialogTitle>
