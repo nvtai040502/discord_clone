@@ -3,9 +3,9 @@ import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 import { ScrollArea } from "../ui/scroll-area";
-import { AddAServerModal } from "../modals/add-a-server";
 import { NavigationHeader } from "./navigation-header";
 import { NavigationItem } from "./navigation-item";
+import { AddAServerButton } from "../modals/add-a-server/button";
 
 
 
@@ -39,14 +39,14 @@ export const NavigationSidebar = async () => {
           <div key={server.id} className="mb-4">
           <NavigationItem
             id={server.id}
-            
             imageUrl={server.imageUrl}
+            name={server.name}
           />
         </div>
         ))}
       </ScrollArea>
 
-      <AddAServerModal></AddAServerModal>
+      <AddAServerButton></AddAServerButton>
         
     </div>
   )

@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import { Inter as FontSans } from "next/font/google"
 import './globals.css'
 import { ClerkProvider } from '@clerk/nextjs'
-import { ThemeProvider } from '@/components/theme-provider'
+import { ThemeProvider } from '@/components/provider/theme-provider'
 import { cn } from '@/lib/utils'
-import { NavigationSidebar } from '@/components/navigation-sidebar'
+import { ModalProvider } from '@/components/provider/modal-provider'
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -37,8 +37,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            
-            { children}
+
+              <ModalProvider />
+              { children }
            
           </ThemeProvider>
         
