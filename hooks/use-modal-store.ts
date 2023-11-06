@@ -4,7 +4,8 @@ import { create } from "zustand"
 export type ModalType = 
 "addAServer" | 
 "invitePeople" |
-"serverSetting"
+"serverSetting" |
+"manageMembers"
 
 interface ModalData {
   server?: Server
