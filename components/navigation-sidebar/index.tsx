@@ -6,6 +6,7 @@ import { ScrollArea } from "../ui/scroll-area";
 import { NavigationHeader } from "./navigation-header";
 import { NavigationItem } from "./navigation-item";
 import { AddAServerButton } from "../modals/add-a-server/button";
+import { ModeToggle } from "../mode-toggle";
 
 
 
@@ -44,7 +45,7 @@ export const NavigationSidebar = async () => {
         </div>
         ))}
       </ScrollArea>
-
+      
       <AddAServerButton></AddAServerButton>
         
     </div>

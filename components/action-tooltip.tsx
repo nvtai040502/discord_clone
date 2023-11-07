@@ -6,14 +6,17 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import React from "react";
 
 interface ActionTooltipProps {
   label: string;
+  side?: React.ComponentProps<typeof TooltipContent>['side'];
   children: React.ReactNode;
 }
 
 export const ActionTooltip = ({
   label,
+  side = "right",
   children,
 }: ActionTooltipProps) => {
   return (
@@ -22,7 +25,7 @@ export const ActionTooltip = ({
         <TooltipTrigger asChild>
           {children}
         </TooltipTrigger>
-        <TooltipContent side="right">
+        <TooltipContent side={side}>
           <p className="font-semibold text-sm">
             {label}
           </p>
