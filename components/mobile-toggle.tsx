@@ -12,7 +12,7 @@ import { ServerSidebar } from "@/components/server-sidebar/index";
 export const MobileToggle = ({
   serverId
 }: {
-  serverId: string;
+  serverId?: string;
 }) => {
   return (
     <Sheet>
@@ -25,7 +25,9 @@ export const MobileToggle = ({
         <div className="w-[72px]">
           <NavigationSidebar />
         </div>
-        <ServerSidebar serverId={serverId} />
+        {serverId && (
+          <ServerSidebar serverId={serverId} />
+        )}
       </SheetContent>
     </Sheet>
   )
