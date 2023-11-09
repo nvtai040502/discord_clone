@@ -13,6 +13,9 @@ export const ourFileRouter = {
   serverImage: f({ image: { maxFileSize: "4MB" } })
     .middleware(() => handleAuth())
     .onUploadComplete(() => {}),
+    messageFile: f(["image", "pdf"])
+    .middleware(() => handleAuth())
+    .onUploadComplete(() => {})
 } satisfies FileRouter;
 
 export type OurFileRouter = typeof ourFileRouter;
