@@ -8,6 +8,7 @@ import { useChatQuery } from "@/hooks/use-chat-query";
 
 import { ChatWelcome } from "./chat-welcome";
 import { ChatItem } from "./chat-item";
+import { useChatSocket } from "@/hooks/use-chat-socket";
 
 type MessageWithMemberWithProfile = Message & {
   member: Member & {
@@ -39,6 +40,10 @@ export const ChatMessages = ({
   type,
 }: ChatMessagesProps) => {
   const queryKey = `chat:${chatId}`;
+  const addKey = `chat:${chatId}:messages`
+  const updateKey = `chat:${chatId}:messages:update`
+
+  useChatSocket({ queryKey, addKey, updateKey });
 
   const {
     data,
@@ -52,6 +57,8 @@ export const ChatMessages = ({
     paramKey,
     paramValue,
   });
+
+  
 
   if (status === "pending") {
     return (
