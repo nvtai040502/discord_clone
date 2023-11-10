@@ -11,6 +11,7 @@ import { LeaveServerModal } from "@/components/modals/leave-server";
 import { DeleteChannelModal } from "../modals/delete-channel";
 import { EditChannelModal } from "../modals/edit-channel";
 import { MessageFileModal } from "../modals/message-file";
+import { DeleteMessageModal } from "../modals/delete-message";
 
 
 export function ModalProvider() {
@@ -36,6 +37,7 @@ export function ModalProvider() {
       <DeleteChannelModal />
       <EditChannelModal />
       <MessageFileModal />
+      <DeleteMessageModal />
     </>
   )
 }
